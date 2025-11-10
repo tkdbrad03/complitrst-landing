@@ -131,6 +131,27 @@
             margin-top: 20px;
         }
         
+        /* Positioning Statement */
+        .positioning-statement {
+            background: linear-gradient(135deg, #006666 0%, #008080 100%);
+            padding: 60px 0;
+            border-bottom: 3px solid #d4af37;
+        }
+        
+        .positioning-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .positioning-text {
+            font-size: 28px;
+            line-height: 1.5;
+            color: white;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+        
         /* Stats Bar */
         .stats-bar {
             background: white;
@@ -728,8 +749,13 @@
             .cta,
             .testimonials,
             .faq,
-            .stats-bar {
+            .stats-bar,
+            .positioning-statement {
                 padding: 60px 0;
+            }
+            
+            .positioning-text {
+                font-size: 20px;
             }
             
             .solution-card {
@@ -759,6 +785,10 @@
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 28px;
+            }
+            
+            .positioning-text {
+                font-size: 18px;
             }
             
             .solution-icon {
@@ -815,6 +845,17 @@
                 <a href="https://tidycal.com/complitrst/complitrst-discoverycall" target="_blank" class="btn btn-white">Schedule Free Discovery Call</a>
             </div>
             <div class="urgency-badge">⚡ Limited availability - Only 5 new clients per month</div>
+        </div>
+    </section>
+
+    <!-- Positioning Statement -->
+    <section class="positioning-statement">
+        <div class="container">
+            <div class="positioning-content">
+                <p class="positioning-text">
+                    I build custom automation solutions that transform how you work. I work with a small number of clients to ensure exceptional quality. If you're drowning in manual processes, let's talk.
+                </p>
+            </div>
         </div>
     </section>
 
