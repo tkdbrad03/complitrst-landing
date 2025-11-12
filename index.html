@@ -799,9 +799,22 @@
                 font-size: 1rem !important;
             }
 
+            /* Testimonial - Remove italics, increase font size for quote, keep attribution small */
+            .featured-solution .featured-grid > div:nth-child(2) > div:last-child > div:first-child {
+                font-style: normal !important;
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            /* Testimonial attribution - keep small */
+            .featured-solution .featured-grid > div:nth-child(2) > div:last-child > div:last-child {
+                font-size: 0.8rem !important;
+                line-height: 1.4 !important;
+            }
+
             /* Before/After boxes */
             .featured-solution ul {
-                font-size: 0.9rem !important;
+                font-size: 0.95rem !important;
             }
 
             /* Hours saved box */
@@ -813,44 +826,93 @@
             .featured-solution a {
                 padding: 0.875rem 1.5rem !important;
                 font-size: 0.95rem !important;
+                display: block !important;
+                text-align: center !important;
             }
 
-            /* Is This Right For You section */
+            /* Is This Right For You section - Better contrast */
             .featured-solution > div > div:nth-last-child(2) h3 {
                 font-size: 1.5rem !important;
             }
 
-            .featured-solution > div > div:nth-last-child(2) p {
-                font-size: 1rem !important;
+            .featured-solution > div > div:nth-last-child(2) > p {
+                font-size: 1.05rem !important;
+                opacity: 1 !important;
+            }
+
+            .featured-solution > div > div:nth-last-child(2) {
+                padding: 2rem 1rem !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            .featured-solution > div > div:nth-last-child(2) > div {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .featured-solution > div > div:nth-last-child(2) > div > div {
+                background: rgba(255, 255, 255, 0.15) !important;
+                padding: 1.5rem !important;
+                margin: 0 !important;
+            }
+
+            .featured-solution > div > div:nth-last-child(2) > div > div > div:first-child {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .featured-solution > div > div:nth-last-child(2) > div > div > div:last-child {
+                font-size: 0.95rem !important;
+                opacity: 0.95 !important;
             }
 
             /* Risk Reversal section */
+            .featured-solution > div > div:last-child {
+                padding: 2rem 1rem !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
             .featured-solution > div > div:last-child h3 {
                 font-size: 1.5rem !important;
             }
 
             .featured-solution > div > div:last-child h4 {
-                font-size: 1rem !important;
+                font-size: 1.05rem !important;
             }
 
             .featured-solution > div > div:last-child p {
-                font-size: 0.9rem !important;
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .featured-solution > div > div:last-child > div:nth-child(2) {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            /* Step boxes */
+            .featured-solution > div > div:last-child > div:nth-child(2) > div {
+                padding-left: 3rem !important;
+                margin: 0 !important;
             }
 
             /* Step numbers */
             .featured-solution > div > div:last-child > div:nth-child(2) > div > div:first-child {
-                width: 35px !important;
-                height: 35px !important;
-                font-size: 1rem !important;
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 1.1rem !important;
             }
 
             /* Guarantee box */
             .featured-solution > div > div:last-child > div:nth-child(3) {
                 padding: 1.5rem !important;
+                margin: 0 !important;
             }
 
             .featured-solution > div > div:last-child > div:nth-child(3) h4 {
-                font-size: 1.1rem !important;
+                font-size: 1.15rem !important;
             }
 
             .featured-solution > div > div:last-child > div:nth-child(3) p {
@@ -1198,10 +1260,10 @@
                         
                         <!-- Social Proof -->
                         <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; border-left: 4px solid #28a745;">
-                            <div style="font-style: italic; color: #155724; margin-bottom: 0.5rem;">
+                            <div style="color: #155724; margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.6;">
                                 "I used to spend weeks managing spreadsheets and chasing down payments from 15 friends. Now everything is in one place and my group actually compliments how professional and organized our trips are!"
                             </div>
-                            <div style="font-weight: 600; color: #155724; font-size: 0.9rem;">
+                            <div style="font-weight: 600; color: #155724; font-size: 0.85rem;">
                                 — Jennifer, Annual Golf Getaway Organizer
                             </div>
                         </div>
@@ -1212,26 +1274,26 @@
             <!-- Who This Is For Section -->
             <div style="background: linear-gradient(135deg, #006666, #008080); padding: 3rem 2.5rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                 <h3 style="text-align: center; color: white; font-size: 1.75rem; margin-bottom: 0.5rem; font-weight: 700;">Is This Right For You?</h3>
-                <p style="text-align: center; color: #F4E4C1; margin-bottom: 3rem; font-size: 1.1rem;">This platform is perfect if you:</p>
+                <p style="text-align: center; color: #FFFFFF; margin-bottom: 3rem; font-size: 1.1rem; opacity: 0.95;">This platform is perfect if you:</p>
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                    <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 12px; border-left: 4px solid #d4af37; backdrop-filter: blur(10px);">
+                    <div style="background: rgba(255, 255, 255, 0.15); padding: 2rem; border-radius: 12px; border-left: 4px solid #d4af37; backdrop-filter: blur(10px);">
                         <div style="font-weight: 700; color: white; margin-bottom: 0.75rem; font-size: 1.2rem;">Organize 2-4+ Golf Trips Per Year</div>
-                        <div style="color: #F4E4C1; line-height: 1.6;">
+                        <div style="color: #FFFFFF; line-height: 1.6; opacity: 0.95;">
                             Managing international or domestic trips for women's golf groups, friend groups, or clubs with 10-20+ travelers.
                         </div>
                     </div>
                     
-                    <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 12px; border-left: 4px solid #d4af37; backdrop-filter: blur(10px);">
+                    <div style="background: rgba(255, 255, 255, 0.15); padding: 2rem; border-radius: 12px; border-left: 4px solid #d4af37; backdrop-filter: blur(10px);">
                         <div style="font-weight: 700; color: white; margin-bottom: 0.75rem; font-size: 1.2rem;">Spend Hours Chasing Payments</div>
-                        <div style="color: #F4E4C1; line-height: 1.6;">
+                        <div style="color: #FFFFFF; line-height: 1.6; opacity: 0.95;">
                             Tired of tracking who paid deposits, final payments, or extras through emails, texts, and spreadsheets.
                         </div>
                     </div>
                     
-                    <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 12px; border-left: 4px solid #d4af37; backdrop-filter: blur(10px);">
+                    <div style="background: rgba(255, 255, 255, 0.15); padding: 2rem; border-radius: 12px; border-left: 4px solid #d4af37; backdrop-filter: blur(10px);">
                         <div style="font-weight: 700; color: white; margin-bottom: 0.75rem; font-size: 1.2rem;">Want Your Group to Look Professional</div>
-                        <div style="color: #F4E4C1; line-height: 1.6;">
+                        <div style="color: #FFFFFF; line-height: 1.6; opacity: 0.95;">
                             Ready to give your travelers a seamless, organized experience instead of scattered information and chaos.
                         </div>
                     </div>
@@ -1418,7 +1480,7 @@
             <h2>Ready to Stop Surviving and Start Thriving?</h2>
             <p>Book a free 30-minute discovery call. No pressure, just honest conversation about your challenges and whether CompliTrst™ is right for you.</p>
             <a href="https://tidycal.com/complitrst/complitrst-discoverycall" target="_blank" class="btn">Schedule Your Free Call →</a>
-            <p style="margin-top: 30px; font-size: 16px; opacity: 0.8;">Limited availability - Only 5 new clients accepted per month</p>
+            <p style="margin-top: 30px; font-size: 16px; opacity: 0.8;">⏰ Limited availability - Only 5 new clients accepted per month</p>
         </div>
     </section>
 
