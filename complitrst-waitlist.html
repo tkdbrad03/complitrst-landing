@@ -483,6 +483,16 @@
             />
             <p class="field-error" id="emailError">Please enter a valid email address.</p>
           </div>
+          <div class="form-group">
+  <label for="phone">Phone Number</label>
+  <input
+    type="tel"
+    id="phone"
+    name="phone"
+    placeholder="(813) 555-0100"
+    autocomplete="tel"
+  />
+</div>
 
           <div class="form-group">
             <label for="facilityType">Facility Type</label>
@@ -612,6 +622,7 @@
       const payload = {
         name:         nameInput.value.trim(),
         email:        emailInput.value.trim(),
+        phone:        document.getElementById("phone").value.trim(),
         facilityType: document.getElementById("facilityType").value || "Not specified"
       };
 
