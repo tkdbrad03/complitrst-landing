@@ -4,161 +4,223 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="description" content="Join the CompliTrst waitlist. The compliance system built for the woman opening a group home, adult day care, or assisted living facility." />
-  <title>Join the Waitlist | CompliTrst</title>
+  <title>Get Early Access | CompliTrst</title>
 
   <link rel="icon" type="image/png" href="complitrst-favicon.png" />
   <link rel="apple-touch-icon" href="complitrst-favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     :root {
-      --teal:       #006666;
-      --teal-dark:  #004d4d;
-      --teal-light: #e6f2f2;
-      --gold:       #b8943f;
-      --off-white:  #f9f7f4;
-      --warm-white: #fffdf9;
-      --ink:        #1a1a1a;
-      --ink-mid:    #3d3d3d;
-      --ink-soft:   #6b6b6b;
-      --rule:       #d9d0c4;
-      --error:      #c0392b;
-      --shadow:     rgba(0,102,102,0.12);
+      --bg:         #ffffff;
+      --pine:       #1f4236;
+      --pine-deep:  #152e25;
+      --gold:       #c9a961;
+      --text-main:  #1f4236;
+      --text-light: #5c6b64;
+      --cream:      #fdfaf5;
+      --cream-dark: #f4ede0;
+      --error:      #8b2020;
+      --font-serif: Georgia, 'Times New Roman', Times, serif;
+      --max-w:      1100px;
+      --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--warm-white);
-      color: var(--ink);
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', serif;
-      line-height: 1.15;
-    }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
 
-    a { color: inherit; text-decoration: none; }
-
-    /* ===================== NAV ===================== */
-    nav {
-      background: rgba(255,253,249,0.97);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 2rem;
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
+    /* ── HEADER ── */
+    .header-banner {
+      width: 100%;
+      height: 120px;
+      background: var(--pine);
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      height: 68px;
     }
 
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--teal-dark);
-      letter-spacing: 0.02em;
+    .header-banner img { max-height: 80px; width: auto; }
+
+    .main-nav {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(31,66,54,0.08);
+      background: var(--bg);
     }
 
-    .nav-logo span { color: var(--gold); }
-
-    .nav-back {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--ink-soft);
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
+    .main-nav a {
+      margin: 0 20px;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--text-main);
     }
 
-    .nav-back:hover { color: var(--teal); }
+    .main-nav a:hover { color: var(--gold); }
 
-    /* ===================== MAIN ===================== */
+    /* ── HERO ── */
+    .page-hero {
+      background: var(--pine);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201,169,97,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero-eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.2s forwards;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.25;
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 1s 0.4s forwards;
+    }
+
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-rule {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem auto;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .page-hero > p {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(253,250,245,0.65);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.85;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.75s forwards;
+    }
+
+    /* ── MAIN SPLIT ── */
     main {
       flex: 1;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      max-width: 1100px;
+      max-width: var(--max-w);
       margin: 0 auto;
       width: 100%;
-      padding: 5rem 2rem;
-      gap: 5rem;
-      align-items: center;
+      padding: 6rem 2rem;
+      gap: 6rem;
+      align-items: start;
     }
 
-    /* ===================== LEFT PANEL ===================== */
-    .left-panel .eyebrow {
+    /* ── LEFT ── */
+    .left-panel .section-label {
       font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
       text-transform: uppercase;
+      letter-spacing: 0.25em;
       color: var(--gold);
       margin-bottom: 1.25rem;
+      display: block;
     }
 
-    .left-panel h1 {
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 1.25rem;
-      line-height: 1.18;
+    .left-panel h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 400;
+      color: var(--pine);
+      line-height: 1.25;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
     }
 
-    .left-panel h1 em {
-      font-style: italic;
-      color: var(--teal-dark);
+    .left-panel h2 em { font-style: italic; color: var(--gold); }
+
+    .gold-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.5rem 0;
     }
 
     .left-panel p {
       font-size: 1rem;
-      color: var(--ink-soft);
-      line-height: 1.8;
-      font-weight: 300;
-      margin-bottom: 2.5rem;
+      color: var(--text-light);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      font-style: italic;
     }
 
     .trust-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.9rem;
+      margin-top: 1.5rem;
     }
 
     .trust-list li {
       font-size: 0.9rem;
-      color: var(--ink-mid);
-      padding-left: 1.25rem;
+      color: var(--text-light);
+      padding-left: 1.5rem;
       position: relative;
-      line-height: 1.5;
-      font-weight: 400;
+      line-height: 1.6;
     }
 
     .trust-list li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.55em;
-      width: 8px;
-      height: 2px;
+      top: 0.65em;
+      width: 6px;
+      height: 1px;
       background: var(--gold);
     }
 
-    /* ===================== FORM PANEL ===================== */
+    /* ── FORM PANEL ── */
     .form-panel {
-      background: var(--warm-white);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      padding: 3rem;
+      background: var(--cream);
+      border: 1px solid rgba(31,66,54,0.1);
+      padding: 3.5rem;
       position: relative;
     }
 
@@ -168,75 +230,64 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 3px;
+      height: 2px;
       background: var(--gold);
-      border-radius: 2px 2px 0 0;
     }
 
     .form-panel h2 {
       font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--teal-dark);
+      font-weight: 400;
+      color: var(--pine);
       margin-bottom: 0.5rem;
+      font-style: italic;
     }
 
-    .form-panel .form-sub {
-      font-size: 0.875rem;
-      color: var(--ink-soft);
-      font-weight: 300;
-      margin-bottom: 2rem;
-      line-height: 1.6;
+    .form-sub {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
     }
 
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
+    .form-group { margin-bottom: 1.5rem; }
 
     label {
       display: block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ink-mid);
-      margin-bottom: 0.5rem;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
     }
 
     input, select {
       width: 100%;
-      padding: 0.85rem 1rem;
-      font-family: 'DM Sans', sans-serif;
+      padding: 0.9rem 1rem;
+      font-family: var(--font-serif);
       font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--ink);
-      background: var(--off-white);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
+      color: var(--text-main);
+      background: var(--bg);
+      border: 1px solid rgba(31,66,54,0.15);
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.3s;
       appearance: none;
       -webkit-appearance: none;
     }
 
-    input:focus, select:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(0,102,102,0.08);
-    }
-
-    input.error, select.error {
-      border-color: var(--error);
-    }
+    input:focus, select:focus { border-color: var(--gold); }
+    input.error, select.error { border-color: var(--error); }
 
     .field-error {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--error);
+      font-style: italic;
       margin-top: 0.35rem;
       display: none;
     }
 
-    .select-wrapper {
-      position: relative;
-    }
+    .select-wrapper { position: relative; }
 
     .select-wrapper::after {
       content: '';
@@ -246,111 +297,86 @@
       transform: translateY(-50%);
       width: 0;
       height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 5px solid var(--ink-soft);
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid var(--text-light);
       pointer-events: none;
     }
 
     .submit-btn {
       width: 100%;
       padding: 1rem;
-      background: var(--teal-dark);
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      background: var(--pine);
+      color: var(--bg);
+      font-family: var(--font-serif);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
       border: none;
-      border-radius: 2px;
       cursor: pointer;
       margin-top: 0.5rem;
-      transition: background 0.2s, transform 0.15s;
-      position: relative;
+      transition: var(--transition);
     }
 
-    .submit-btn:hover:not(:disabled) {
-      background: var(--teal);
-      transform: translateY(-1px);
-    }
-
-    .submit-btn:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
-
-    .submit-btn .btn-loading {
-      display: none;
-    }
-
+    .submit-btn:hover:not(:disabled) { background: var(--pine-deep); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
     .submit-btn.loading .btn-text { display: none; }
+    .submit-btn .btn-loading { display: none; }
     .submit-btn.loading .btn-loading { display: inline; }
 
     .form-note {
-      font-size: 0.78rem;
-      color: var(--ink-soft);
+      font-size: 0.72rem;
+      color: var(--text-light);
       text-align: center;
-      margin-top: 1rem;
-      font-weight: 300;
-      line-height: 1.5;
+      margin-top: 1.25rem;
+      font-style: italic;
+      line-height: 1.6;
     }
 
-    /* ===================== THANK YOU STATE ===================== */
+    /* ── THANK YOU ── */
     .thank-you {
       display: none;
       text-align: center;
       padding: 2rem 0;
     }
 
-    .thank-you-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--teal-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-    }
-
-    .thank-you-icon svg {
-      width: 26px;
-      height: 26px;
-      stroke: var(--teal-dark);
-      stroke-width: 2.5;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .thank-you-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.5rem auto;
     }
 
     .thank-you h3 {
       font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--teal-dark);
-      margin-bottom: 0.75rem;
+      font-weight: 400;
+      color: var(--pine);
+      font-style: italic;
+      margin-bottom: 1rem;
     }
 
     .thank-you p {
       font-size: 0.95rem;
-      color: var(--ink-soft);
-      line-height: 1.75;
-      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.85;
+      font-style: italic;
       max-width: 320px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2rem;
     }
 
-    .thank-you .back-link {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--teal);
-      border-bottom: 1px solid var(--teal-light);
+    .thank-you a {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--pine);
+      border-bottom: 1px solid rgba(31,66,54,0.2);
       padding-bottom: 2px;
-      transition: color 0.2s;
+      transition: color 0.3s, border-color 0.3s;
     }
 
-    .thank-you .back-link:hover { color: var(--teal-dark); }
+    .thank-you a:hover { color: var(--gold); border-color: var(--gold); }
 
-    /* ===================== DUPLICATE STATE ===================== */
+    /* ── DUPLICATE ── */
     .already-on-list {
       display: none;
       text-align: center;
@@ -359,88 +385,102 @@
 
     .already-on-list h3 {
       font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--teal-dark);
-      margin-bottom: 0.75rem;
+      font-weight: 400;
+      color: var(--pine);
+      font-style: italic;
+      margin-bottom: 1rem;
     }
 
     .already-on-list p {
       font-size: 0.9rem;
-      color: var(--ink-soft);
-      font-weight: 300;
-      line-height: 1.7;
+      color: var(--text-light);
+      font-style: italic;
+      line-height: 1.75;
     }
 
-    /* ===================== FOOTER ===================== */
+    /* ── FOOTER ── */
     footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.4);
-      padding: 1.75rem 2rem;
+      padding: 3rem 2rem;
       text-align: center;
-      font-size: 0.78rem;
-      font-weight: 300;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      border-top: 1px solid rgba(31,66,54,0.08);
+      background: var(--bg);
     }
 
-    footer a {
-      color: rgba(255,255,255,0.4);
-      transition: color 0.2s;
+    footer .footer-tagline {
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-size: 1rem;
     }
 
-    footer a:hover { color: rgba(255,255,255,0.7); }
+    footer .footer-copy { margin-bottom: 1rem; font-size: 0.82rem; }
 
-    /* ===================== ANIMATIONS ===================== */
+    footer a { margin: 0 15px; color: var(--pine); font-size: 0.78rem; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s ease-out, transform 0.85s ease-out;
+    }
+
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .left-panel { animation: fadeUp 0.6s ease both; }
-    .form-panel { animation: fadeUp 0.6s 0.15s ease both; }
-
-    @keyframes checkPop {
-      0%   { transform: scale(0); opacity: 0; }
-      70%  { transform: scale(1.15); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .thank-you-icon { animation: checkPop 0.4s ease both; }
-
-    /* ===================== RESPONSIVE ===================== */
-    @media (max-width: 800px) {
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
       main {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
-        padding: 3rem 1.5rem;
+        gap: 3rem;
+        padding: 4rem 1.5rem;
       }
+
+      .form-panel { padding: 2.5rem 1.75rem; }
+      .main-nav a { margin: 0 10px; font-size: 0.7rem; }
     }
 
     @media (max-width: 480px) {
-      .form-panel { padding: 2rem 1.5rem; }
-      nav { padding: 0 1.25rem; }
-      main { padding: 2.5rem 1.25rem; }
+      .form-panel { padding: 2rem 1.25rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Compli<span>Trst</span>&trade;</a>
-      <a href="index.html" class="nav-back">&larr; Back to CompliTrst</a>
-    </div>
+  <!-- HEADER -->
+  <div class="header-banner">
+    <a href="index.html">
+      <img src="complitrst-logo_transparent.png" alt="CompliTrst" />
+    </a>
+  </div>
+
+  <nav class="main-nav">
+    <a href="index.html">&larr; Back to CompliTrst</a>
+    <a href="https://www.tmacinspired.com">TMac Inspired</a>
   </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">CompliTrst&trade; &nbsp; &middot; &nbsp; Early Access</p>
+    <h1>Get early access to <em>CompliTrst.</em></h1>
+    <div class="hero-rule"></div>
+  </div>
 
   <!-- MAIN -->
   <main>
 
-    <!-- LEFT PANEL -->
-    <div class="left-panel">
-      <p class="eyebrow">Join the Waitlist</p>
-      <h1>Get early access to <em>CompliTrst.</em></h1>
-      <p>
-        CompliTrst is built for the woman who wants to open a group home, adult day care, or assisted living facility and needs the compliance side handled so she can focus on building the business.
-      </p>
+    <!-- LEFT -->
+    <div class="left-panel reveal">
+      <span class="section-label">What You Are Signing Up For</span>
+      <h2>The compliance system that walks with you from <em>idea to open to operating.</em></h2>
+      <div class="gold-rule"></div>
+      <p>CompliTrst is built for the woman who wants to open a group home, adult day care, or assisted living facility and needs the compliance side handled so she can focus on building the business.</p>
       <ul class="trust-list">
         <li>State-specific compliance roadmap for your facility type</li>
         <li>Automated policies, filings, and staff training tracking</li>
@@ -450,49 +490,31 @@
       </ul>
     </div>
 
-    <!-- FORM PANEL -->
-    <div class="form-panel">
+    <!-- FORM -->
+    <div class="form-panel reveal reveal-delay-1">
 
-      <!-- FORM -->
       <div id="formState">
         <h2>Reserve Your Spot</h2>
-        <p class="form-sub">Join the waitlist. You will be notified the moment CompliTrst is ready for you.</p>
+        <p class="form-sub">Join the list. You will be notified the moment CompliTrst is ready for you.</p>
 
         <form id="waitlistForm" novalidate>
 
           <div class="form-group">
             <label for="name">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Dr. Jane Smith"
-              autocomplete="name"
-            />
+            <input type="text" id="name" name="name" placeholder="Dr. Jane Smith" autocomplete="name" />
             <p class="field-error" id="nameError">Please enter your name.</p>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="jane@yourbusiness.com"
-              autocomplete="email"
-            />
+            <input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" autocomplete="email" />
             <p class="field-error" id="emailError">Please enter a valid email address.</p>
           </div>
+
           <div class="form-group">
-  <label for="phone">Phone Number</label>
-  <input
-    type="tel"
-    id="phone"
-    name="phone"
-    placeholder="(813) 555-0100"
-    autocomplete="tel"
-  />
-</div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(813) 555-0100" autocomplete="tel" />
+          </div>
 
           <div class="form-group">
             <label for="facilityType">Facility Type</label>
@@ -508,35 +530,28 @@
           </div>
 
           <button type="submit" class="submit-btn" id="submitBtn">
-            <span class="btn-text">Join the Waitlist</span>
+            <span class="btn-text">Join the List</span>
             <span class="btn-loading">Submitting...</span>
           </button>
 
-          <p class="form-note">No spam.</p>
+          <p class="form-note">No spam. No pressure. Just a heads-up when CompliTrst is ready for you.</p>
 
         </form>
       </div>
 
-      <!-- THANK YOU STATE -->
+      <!-- THANK YOU -->
       <div class="thank-you" id="thankYouState">
-        <div class="thank-you-icon">
-          <svg viewBox="0 0 24 24">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
+        <div class="thank-you-rule"></div>
         <h3>You are on the list.</h3>
-        <p>
-          You will hear from Dr. TMac directly within 48 hours. Keep building.
-        </p>
-        <a href="index.html" class="back-link">Back to CompliTrst &rarr;</a>
+        <p>You will hear from Dr. TMac directly when CompliTrst is ready. Keep building.</p>
+        <a href="index.html">Back to CompliTrst &rarr;</a>
       </div>
 
-      <!-- ALREADY ON LIST STATE -->
+      <!-- DUPLICATE -->
       <div class="already-on-list" id="duplicateState">
+        <div class="thank-you-rule"></div>
         <h3>You are already on the list.</h3>
-        <p>
-          That email address is already registered. You will be notified within 48 hours. No need to sign up again.
-        </p>
+        <p>That email address is already registered. You will be notified when CompliTrst is ready. No need to sign up again.</p>
       </div>
 
     </div>
@@ -544,27 +559,25 @@
 
   <!-- FOOTER -->
   <footer>
-    CompliTrst&trade; &copy; 2026 &nbsp;&middot;&nbsp; Built by Dr. Tasha McCray, Ph.D. &nbsp;&middot;&nbsp;
-    <a href="https://www.complitrst.com/privacy">Privacy Policy</a> &nbsp;&middot;&nbsp;
-    <a href="https://www.complitrst.com/terms">Terms of Service</a>
+    <p class="footer-tagline">&ldquo;You can have it all.&rdquo;</p>
+    <p class="footer-copy">CompliTrst&trade; &copy; 2026 &nbsp;&middot;&nbsp; Built by Dr. Tasha McCray, Ph.D.</p>
+    <div>
+      <a href="index.html">CompliTrst</a>
+      <a href="https://www.tmacinspired.com">TMac Inspired</a>
+      <a href="https://www.complitrst.com/privacy">Privacy Policy</a>
+      <a href="https://www.complitrst.com/terms">Terms of Service</a>
+      <a href="mailto:support@tmacinspired.com">Contact</a>
+    </div>
   </footer>
 
   <script>
-    // -------------------------------------------------------
-    // CONFIGURATION
-    // Replace this URL with your deployed Apps Script Web App URL
-    // -------------------------------------------------------
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwRFPK-1ZkBjADNIhuLDdlugHRsxLmPf2qYmcNloT8xVxa52ilc_atRId8V1eka6Ggf/exec";
 
-    // -------------------------------------------------------
-    // FORM LOGIC
-    // -------------------------------------------------------
     const form       = document.getElementById("waitlistForm");
     const submitBtn  = document.getElementById("submitBtn");
     const formState  = document.getElementById("formState");
     const thankYou   = document.getElementById("thankYouState");
     const duplicate  = document.getElementById("duplicateState");
-
     const nameInput  = document.getElementById("name");
     const emailInput = document.getElementById("email");
     const nameError  = document.getElementById("nameError");
@@ -586,34 +599,18 @@
 
     function validate() {
       let valid = true;
-
-      const name = nameInput.value.trim();
-      const email = emailInput.value.trim();
-
-      if (!name) {
-        showError(nameInput, nameError);
-        valid = false;
-      } else {
-        clearError(nameInput, nameError);
-      }
-
-      if (!email || !isValidEmail(email)) {
-        showError(emailInput, emailError);
-        valid = false;
-      } else {
-        clearError(emailInput, emailError);
-      }
-
+      if (!nameInput.value.trim()) { showError(nameInput, nameError); valid = false; }
+      else { clearError(nameInput, nameError); }
+      if (!emailInput.value.trim() || !isValidEmail(emailInput.value.trim())) { showError(emailInput, emailError); valid = false; }
+      else { clearError(emailInput, emailError); }
       return valid;
     }
 
-    // Clear errors on input
     nameInput.addEventListener("input",  () => clearError(nameInput,  nameError));
     emailInput.addEventListener("input", () => clearError(emailInput, emailError));
 
     form.addEventListener("submit", async function(e) {
       e.preventDefault();
-
       if (!validate()) return;
 
       submitBtn.disabled = true;
@@ -627,24 +624,33 @@
       };
 
       try {
-  await fetch(APPS_SCRIPT_URL, {
-    method:  "POST",
-    mode:    "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body:    JSON.stringify(payload)
-  });
+        await fetch(APPS_SCRIPT_URL, {
+          method:  "POST",
+          mode:    "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body:    JSON.stringify(payload)
+        });
 
-  // With no-cors we cannot read the response
-  // so we optimistically show the thank you state
-  formState.style.display = "none";
-  thankYou.style.display  = "block";
+        formState.style.display = "none";
+        thankYou.style.display  = "block";
 
-} catch (err) {
-  alert("We could not reach the server. Please check your connection and try again.");
-  submitBtn.disabled = false;
-  submitBtn.classList.remove("loading");
-}
+      } catch (err) {
+        alert("We could not reach the server. Please check your connection and try again.");
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("loading");
+      }
     });
+
+    function revealOnScroll() {
+      var els = document.querySelectorAll(".reveal");
+      for (var i = 0; i < els.length; i++) {
+        if (els[i].getBoundingClientRect().top < window.innerHeight - 120) {
+          els[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
   </script>
 
 </body>
