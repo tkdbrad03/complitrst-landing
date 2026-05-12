@@ -5,276 +5,223 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="description" content="CompliTrst is the compliance system built for the woman opening a group home, adult day care, or assisted living facility. Built by Dr. Tasha McCray, 32 years in healthcare." />
   <title>CompliTrst | Built for the Woman Opening a Care Facility</title>
-  <link rel="icon" type="image/png" href="complitrst-favicon.png">
-  <link rel="apple-touch-icon" href="complitrst-favicon.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="complitrst-favicon.png" />
+  <link rel="apple-touch-icon" href="complitrst-favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     :root {
-      --teal:       #006666;
-      --teal-dark:  #004d4d;
-      --teal-light: #e6f2f2;
-      --teal-mid:   #cce6e6;
-      --gold:       #b8943f;
-      --gold-light: #f5edd8;
-      --off-white:  #f9f7f4;
-      --warm-white: #fffdf9;
-      --ink:        #1a1a1a;
-      --ink-mid:    #3d3d3d;
-      --ink-soft:   #6b6b6b;
-      --rule:       #d9d0c4;
-      --shadow:     rgba(0,102,102,0.12);
+      --bg:         #ffffff;
+      --pine:       #1f4236;
+      --pine-deep:  #152e25;
+      --gold:       #c9a961;
+      --text-main:  #1f4236;
+      --text-light: #5c6b64;
+      --cream:      #fdfaf5;
+      --cream-dark: #f4ede0;
+      --font-serif: Georgia, 'Times New Roman', Times, serif;
+      --max-w:      1100px;
+      --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--warm-white);
-      color: var(--ink);
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 18px;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
 
-    a { color: inherit; text-decoration: none; }
-
-    img { max-width: 100%; display: block; }
-
-    /* ===================== NAV ===================== */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,253,249,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 2rem;
-    }
-
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+    /* ── HEADER ── */
+    .header-banner {
+      width: 100%;
+      height: 120px;
+      background: var(--pine);
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      height: 68px;
     }
 
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--teal-dark);
-      letter-spacing: 0.02em;
+    .header-banner img { max-height: 80px; width: auto; }
+
+    .main-nav {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(31,66,54,0.08);
+      background: var(--bg);
     }
 
-    .nav-logo span {
-      color: var(--gold);
+    .main-nav a {
+      margin: 0 20px;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--text-main);
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-      list-style: none;
-    }
+    .main-nav a:hover { color: var(--gold); }
 
-    .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--ink-mid);
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--teal); }
-
-    .nav-cta {
-      background: var(--teal);
-      color: #fff !important;
-      padding: 0.55rem 1.4rem;
-      border-radius: 2px;
-      font-size: 0.875rem !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.04em !important;
-      transition: background 0.2s !important;
-    }
-
-    .nav-cta:hover { background: var(--teal-dark) !important; }
-
-    .nav-mobile-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--pine);
+      color: var(--pine);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: transparent;
       cursor: pointer;
-      padding: 4px;
+      transition: var(--transition);
+      font-family: var(--font-serif);
     }
 
-    .nav-mobile-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--ink);
-      border-radius: 1px;
-      transition: all 0.3s;
-    }
+    .btn:hover { background: var(--pine); color: var(--bg); }
 
-    /* ===================== HERO ===================== */
+    .btn-gold { border-color: var(--gold); color: var(--gold); }
+    .btn-gold:hover { background: var(--gold); color: white; }
+
+    .btn-pine-fill { background: var(--pine); color: var(--bg); border-color: var(--pine); }
+    .btn-pine-fill:hover { background: var(--pine-deep); border-color: var(--pine-deep); }
+
+    /* ── HERO ── */
     .hero {
-      background: var(--teal-dark);
+      padding: 7rem 2rem 6rem;
+      text-align: center;
+      background: var(--pine);
       position: relative;
       overflow: hidden;
-      padding: 7rem 2rem 6rem;
     }
 
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 60% 70% at 80% 50%, rgba(184,148,63,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(0,77,77,0.6) 0%, transparent 60%);
+      background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201,169,97,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .hero-grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.2s forwards;
       position: relative;
       z-index: 1;
     }
 
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.75rem;
-      border-bottom: 1px solid rgba(184,148,63,0.4);
-      padding-bottom: 0.4rem;
-    }
-
     .hero h1 {
-      font-size: clamp(2.4rem, 5.5vw, 4rem);
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.25;
       max-width: 820px;
+      margin: 0 auto 1.5rem;
+      letter-spacing: -0.01em;
+      opacity: 0;
+      animation: fadeUp 1s 0.4s forwards;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold);
+    .hero h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-rule {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem auto;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s forwards;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-sub {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 640px;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-      font-weight: 300;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(253,250,245,0.75);
+      max-width: 580px;
+      margin: 0 auto 3rem;
+      line-height: 1.85;
+      font-style: italic;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.8s forwards;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-actions {
+    .hero-cta {
+      opacity: 0;
+      animation: fadeUp 0.9s 1s forwards;
       display: flex;
+      gap: 1rem;
+      justify-content: center;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 1.25rem;
-      margin-bottom: 3rem;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--ink);
-      padding: 1rem 2.2rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-block;
-    }
-
-    .btn-primary:hover {
-      background: #a07c30;
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.875rem;
-      font-weight: 400;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .btn-ghost:hover {
-      color: #fff;
-      border-color: rgba(255,255,255,0.7);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 4rem;
     }
 
     .hero-trust {
+      opacity: 0;
+      animation: fadeUp 0.9s 1.1s forwards;
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 0.5rem 1.5rem;
-      align-items: center;
+      gap: 0.5rem 2rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-trust-item {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.5);
+    .hero-trust span {
+      font-size: 0.68rem;
       text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(253,250,245,0.4);
     }
 
-    .hero-trust-dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--gold);
-      opacity: 0.6;
-      display: inline-block;
+    /* ── PHILOSOPHY BAR ── */
+    .philosophy-bar {
+      background: var(--cream-dark);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(31,66,54,0.08);
     }
 
-    /* ===================== STATS BAR ===================== */
+    .philosophy-bar p {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-style: italic;
+      color: var(--text-light);
+      max-width: 820px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    .philosophy-bar strong {
+      font-style: normal;
+      color: var(--pine);
+      font-weight: 400;
+    }
+
+    /* ── STATS ── */
     .stats-bar {
-      background: var(--off-white);
-      border-bottom: 1px solid var(--rule);
-      padding: 2.5rem 2rem;
+      background: var(--pine);
+      padding: 3rem 2rem;
     }
 
     .stats-inner {
-      max-width: 1100px;
+      max-width: var(--max-w);
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -284,249 +231,237 @@
 
     .stat-item {
       padding: 1rem;
+      border-right: 1px solid rgba(201,169,97,0.15);
     }
 
+    .stat-item:last-child { border-right: none; }
+
     .stat-number {
-      font-family: 'Cormorant Garamond', serif;
       font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--teal-dark);
+      font-weight: 400;
+      color: var(--gold);
       line-height: 1;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
+      font-style: italic;
     }
 
     .stat-label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--ink-soft);
-      letter-spacing: 0.04em;
+      font-size: 0.68rem;
       text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(253,250,245,0.5);
     }
 
-    /* ===================== SECTION COMMONS ===================== */
-    section { padding: 6rem 2rem; }
-
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-eyebrow {
+    /* ── SECTION COMMONS ── */
+    .section-label {
       font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
       text-transform: uppercase;
+      letter-spacing: 0.25em;
       color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .section-heading {
-      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-      font-weight: 600;
-      color: var(--ink);
       margin-bottom: 1.25rem;
+      display: block;
     }
 
-    .section-sub {
-      font-size: 1.05rem;
-      color: var(--ink-soft);
-      max-width: 600px;
-      line-height: 1.75;
-      font-weight: 300;
-    }
-
-    .ruled-heading {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .ruled-heading::after {
-      content: '';
-      flex: 1;
+    .gold-rule {
+      width: 36px;
       height: 1px;
-      background: var(--rule);
+      background: var(--gold);
+      margin: 1.5rem 0;
     }
 
-    /* ===================== PROBLEM ===================== */
-    .problem {
-      background: var(--warm-white);
-    }
-
-    .problem-layout {
+    /* ── PROBLEM SPLIT ── */
+    .problem-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
+      min-height: 560px;
+    }
+
+    .problem-text {
+      background: var(--cream);
+      padding: 6rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .problem-text h2 {
-      font-size: clamp(1.9rem, 3vw, 2.6rem);
-      font-weight: 600;
-      color: var(--ink);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400;
+      color: var(--pine);
+      line-height: 1.25;
       margin-bottom: 1.5rem;
-      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
+
+    .problem-text h2 em { font-style: italic; color: var(--gold); }
 
     .problem-text p {
       font-size: 1rem;
-      color: var(--ink-mid);
-      line-height: 1.8;
+      color: var(--text-light);
+      line-height: 1.85;
       margin-bottom: 1rem;
-      font-weight: 300;
+      max-width: 36em;
     }
 
     .problem-text p strong {
-      color: var(--teal-dark);
-      font-weight: 600;
+      color: var(--pine);
+      font-weight: 400;
+      font-style: italic;
     }
 
     .problem-list {
-      background: var(--teal-dark);
-      color: #fff;
-      padding: 2.5rem;
-      border-radius: 2px;
-      position: relative;
-    }
-
-    .problem-list::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gold);
+      background: var(--pine);
+      padding: 6rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .problem-list h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(253,250,245,0.6);
+      margin-bottom: 2rem;
     }
 
     .problem-list ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.1rem;
     }
 
     .problem-list li {
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.85);
-      padding-left: 1.25rem;
+      color: rgba(253,250,245,0.8);
+      padding-left: 1.5rem;
       position: relative;
-      line-height: 1.5;
-      font-weight: 300;
+      line-height: 1.6;
     }
 
     .problem-list li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.55em;
+      top: 0.65em;
       width: 6px;
-      height: 6px;
-      border-radius: 50%;
+      height: 1px;
       background: var(--gold);
     }
 
-    /* ===================== THREE STAGES ===================== */
+    /* ── THREE STAGES ── */
     .stages {
-      background: var(--off-white);
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
+      padding: 8rem 2rem;
+      text-align: center;
+      background: var(--bg);
     }
 
-    .stages-header {
-      text-align: center;
-      margin-bottom: 4rem;
+    .stages h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--pine);
+      max-width: 640px;
+      margin: 1rem auto 1rem;
+      line-height: 1.3;
+    }
+
+    .stages h2 em { font-style: italic; color: var(--gold); }
+
+    .stages .intro-p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      font-style: italic;
+      max-width: 480px;
+      margin: 0 auto 4rem;
+      line-height: 1.8;
     }
 
     .stages-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid var(--rule);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      border: 1px solid rgba(31,66,54,0.1);
     }
 
     .stage-card {
-      padding: 3rem 2.5rem;
-      border-right: 1px solid var(--rule);
+      padding: 3.5rem 2.5rem;
+      border-right: 1px solid rgba(31,66,54,0.1);
+      text-align: left;
+      transition: background 0.4s ease;
       position: relative;
-      background: var(--warm-white);
-      transition: background 0.25s;
     }
 
     .stage-card:last-child { border-right: none; }
+    .stage-card:hover { background: var(--cream); }
 
-    .stage-card:hover { background: var(--teal-light); }
-
-    .stage-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
-      font-weight: 700;
-      color: var(--teal-light);
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
+    .stage-num {
+      font-size: 3.5rem;
+      color: rgba(201,169,97,0.2);
       line-height: 1;
-    }
-
-    .stage-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
     }
 
     .stage-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--teal-dark);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--pine);
       margin-bottom: 1rem;
     }
 
     .stage-card p {
       font-size: 0.95rem;
-      color: var(--ink-mid);
-      line-height: 1.75;
-      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.8;
     }
 
-    /* ===================== DIFFERENTIATOR ===================== */
-    .differentiator {
-      background: var(--warm-white);
+    .stage-tag {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      font-style: italic;
     }
 
-    .diff-layout {
+    /* ── DIFFERENTIATOR SPLIT ── */
+    .diff-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
+      background: var(--pine);
+      min-height: 580px;
     }
 
-    .diff-content h2 {
-      font-size: clamp(1.9rem, 3vw, 2.6rem);
-      font-weight: 600;
-      color: var(--ink);
+    .diff-text {
+      padding: 7rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .diff-text .section-label { color: rgba(201,169,97,0.8); }
+
+    .diff-text h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.25;
       margin-bottom: 1.5rem;
-      line-height: 1.2;
     }
 
-    .diff-content p {
+    .diff-text h2 em { color: var(--gold); font-style: italic; }
+
+    .diff-text .gold-rule { background: rgba(201,169,97,0.4); }
+
+    .diff-text p {
       font-size: 1rem;
-      color: var(--ink-mid);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      font-weight: 300;
+      color: rgba(253,250,245,0.75);
+      line-height: 1.85;
+      margin-bottom: 0.75rem;
+      max-width: 36em;
     }
 
     .cred-list {
@@ -534,261 +469,268 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      margin-bottom: 2rem;
+      margin: 1.5rem 0;
     }
 
     .cred-list li {
       font-size: 0.95rem;
-      color: var(--ink-mid);
+      color: rgba(253,250,245,0.75);
       padding-left: 1.5rem;
       position: relative;
       line-height: 1.5;
-      font-weight: 400;
     }
 
     .cred-list li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.55em;
-      width: 8px;
-      height: 2px;
+      top: 0.65em;
+      width: 6px;
+      height: 1px;
       background: var(--gold);
     }
 
-    .diff-quote {
-      background: var(--teal-dark);
-      color: #fff;
-      padding: 3rem;
-      border-radius: 2px;
+    .diff-quote-panel {
+      background: var(--pine-deep);
+      padding: 7rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       position: relative;
+      overflow: hidden;
     }
 
-    .diff-quote::before {
-      content: '"';
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 8rem;
-      color: rgba(255,255,255,0.06);
+    .diff-quote-panel::before {
+      content: '';
       position: absolute;
-      top: -1rem;
-      left: 2rem;
-      line-height: 1;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,169,97,0.07) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .diff-quote blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 400;
-      font-style: italic;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.6;
+    .quote-mark-sm {
+      font-size: 5rem;
+      line-height: 0.6;
+      color: rgba(201,169,97,0.15);
       margin-bottom: 1.5rem;
+    }
+
+    .diff-quote-panel blockquote {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: rgba(253,250,245,0.85);
+      line-height: 1.8;
+      margin-bottom: 2rem;
       position: relative;
       z-index: 1;
     }
 
     .diff-quote-attr {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-size: 0.68rem;
       text-transform: uppercase;
+      letter-spacing: 0.2em;
       color: var(--gold);
+      font-style: normal;
+      position: relative;
+      z-index: 1;
     }
 
-    .diff-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--teal);
-      border-bottom: 1px solid var(--teal-mid);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .diff-link:hover {
-      color: var(--teal-dark);
-      border-color: var(--teal);
-    }
-
-    /* ===================== SOCIAL PROOF ===================== */
+    /* ── PROOF ── */
     .proof {
-      background: var(--off-white);
-      border-top: 1px solid var(--rule);
+      padding: 8rem 2rem;
+      background: var(--cream);
+      text-align: center;
     }
 
-    .proof-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
+    .proof h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--pine);
+      max-width: 580px;
+      margin: 1rem auto 4rem;
+      line-height: 1.3;
     }
+
+    .proof h2 em { font-style: italic; color: var(--gold); }
 
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      border: 1px solid rgba(31,66,54,0.1);
     }
 
     .proof-card {
-      background: var(--warm-white);
-      border: 1px solid var(--rule);
-      padding: 2.5rem;
-      border-radius: 2px;
+      padding: 3rem 2.5rem;
+      border-right: 1px solid rgba(31,66,54,0.1);
+      text-align: left;
+      background: var(--bg);
+      transition: background 0.4s ease;
       position: relative;
     }
+
+    .proof-card:last-child { border-right: none; }
+    .proof-card:hover { background: var(--cream); }
 
     .proof-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 2.5rem;
-      width: 2rem;
-      height: 3px;
+      width: 24px;
+      height: 1px;
       background: var(--gold);
     }
 
     .proof-card blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-style: italic;
-      color: var(--ink-mid);
-      line-height: 1.65;
+      color: var(--text-light);
+      line-height: 1.85;
       margin-bottom: 1.5rem;
     }
 
     .proof-meta {
-      border-top: 1px solid var(--rule);
+      border-top: 1px solid rgba(31,66,54,0.08);
       padding-top: 1rem;
     }
 
     .proof-name {
-      font-weight: 600;
-      font-size: 0.875rem;
-      color: var(--ink);
-      margin-bottom: 0.2rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--pine);
+      margin-bottom: 0.25rem;
     }
 
     .proof-title {
-      font-size: 0.8rem;
-      color: var(--ink-soft);
-      font-weight: 300;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
       margin-bottom: 0.5rem;
     }
 
     .proof-result {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      color: var(--teal);
+      letter-spacing: 0.15em;
+      color: var(--gold);
     }
 
-    /* ===================== PRICING ===================== */
+    /* ── PRICING ── */
     .pricing {
-      background: var(--warm-white);
+      padding: 8rem 2rem;
+      background: var(--bg);
+      text-align: center;
     }
 
-    .pricing-header {
-      text-align: center;
-      margin-bottom: 4rem;
+    .pricing h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--pine);
+      max-width: 580px;
+      margin: 1rem auto 1rem;
+      line-height: 1.3;
+    }
+
+    .pricing h2 em { font-style: italic; color: var(--gold); }
+
+    .pricing .intro-p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      font-style: italic;
+      max-width: 440px;
+      margin: 0 auto 4rem;
+      line-height: 1.8;
     }
 
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+      max-width: var(--max-w);
+      margin: 0 auto 2rem;
+      border: 1px solid rgba(31,66,54,0.1);
     }
 
     .pricing-card {
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      overflow: hidden;
-      background: var(--warm-white);
-      transition: box-shadow 0.25s, transform 0.2s;
-    }
-
-    .pricing-card:hover {
-      box-shadow: 0 12px 40px var(--shadow);
-      transform: translateY(-3px);
-    }
-
-    .pricing-card.featured {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 2px var(--teal);
-    }
-
-    .pricing-card-top {
-      background: var(--teal-dark);
-      color: #fff;
-      padding: 2rem 2rem 1.5rem;
+      padding: 3.5rem 2.5rem;
+      border-right: 1px solid rgba(31,66,54,0.1);
+      text-align: left;
+      transition: background 0.4s ease;
       position: relative;
     }
 
-    .pricing-card.featured .pricing-card-top {
-      background: var(--teal-dark);
+    .pricing-card:last-child { border-right: none; }
+    .pricing-card:hover { background: var(--cream); }
+
+    .pricing-card.featured {
+      background: var(--pine);
     }
 
-    .featured-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--gold);
-      color: var(--ink);
+    .pricing-card.featured:hover { background: var(--pine-deep); }
+
+    .featured-label {
       font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: 1px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 1rem;
+      display: block;
     }
 
     .pricing-tier {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      font-size: 0.72rem;
       text-transform: uppercase;
+      letter-spacing: 0.2em;
       color: var(--gold);
       margin-bottom: 0.5rem;
     }
 
+    .pricing-card.featured .pricing-tier { color: rgba(201,169,97,0.8); }
+
     .pricing-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--pine);
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    .pricing-card.featured .pricing-name { color: var(--cream); }
+
+    .pricing-best-for {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .pricing-card.featured .pricing-best-for { color: rgba(253,250,245,0.55); }
+
+    .pricing-amount {
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--pine);
+      line-height: 1;
+      font-style: italic;
       margin-bottom: 0.25rem;
     }
 
-    .pricing-best-for {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
-      font-weight: 300;
-    }
-
-    .pricing-card-body {
-      padding: 2rem;
-    }
-
-    .pricing-price {
-      margin-bottom: 1.75rem;
-      padding-bottom: 1.75rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .pricing-amount {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--teal-dark);
-      line-height: 1;
-    }
+    .pricing-card.featured .pricing-amount { color: var(--gold); }
 
     .pricing-period {
-      font-size: 0.85rem;
-      color: var(--ink-soft);
-      font-weight: 300;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(31,66,54,0.08);
     }
+
+    .pricing-card.featured .pricing-period { color: rgba(253,250,245,0.4); border-bottom-color: rgba(201,169,97,0.15); }
 
     .pricing-features {
       list-style: none;
@@ -800,401 +742,324 @@
 
     .pricing-features li {
       font-size: 0.9rem;
-      color: var(--ink-mid);
+      color: var(--text-light);
       padding-left: 1.25rem;
       position: relative;
       line-height: 1.5;
-      font-weight: 300;
     }
+
+    .pricing-card.featured .pricing-features li { color: rgba(253,250,245,0.7); }
 
     .pricing-features li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.6em;
+      top: 0.65em;
       width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--teal-light);
-      border: 1.5px solid var(--teal);
-    }
-
-    .pricing-btn {
-      display: block;
-      width: 100%;
-      padding: 0.9rem;
-      background: var(--teal-dark);
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-align: center;
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .pricing-btn:hover { background: var(--teal); }
-
-    .pricing-card.featured .pricing-btn {
+      height: 1px;
       background: var(--gold);
-      color: var(--ink);
-    }
-
-    .pricing-card.featured .pricing-btn:hover {
-      background: #a07c30;
     }
 
     .pricing-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
       text-align: center;
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-      font-weight: 300;
+      max-width: var(--max-w);
+      margin: 0 auto;
     }
 
-    /* ===================== FAQ ===================== */
+    /* ── FAQ ── */
     .faq {
-      background: var(--off-white);
-      border-top: 1px solid var(--rule);
+      padding: 8rem 2rem;
+      background: var(--cream);
+    }
+
+    .faq-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
     }
 
     .faq-header {
-      margin-bottom: 3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .faq-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--pine);
+      max-width: 540px;
+      margin: 1rem auto 0;
+      line-height: 1.3;
     }
 
     .faq-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: 1px solid var(--rule);
+      border: 1px solid rgba(31,66,54,0.1);
     }
 
     .faq-item {
-      padding: 2rem 2.5rem;
-      border-bottom: 1px solid var(--rule);
-      border-right: 1px solid var(--rule);
-      background: var(--warm-white);
-      transition: background 0.2s;
+      padding: 2.5rem;
+      border-bottom: 1px solid rgba(31,66,54,0.1);
+      border-right: 1px solid rgba(31,66,54,0.1);
+      background: var(--bg);
+      transition: background 0.3s ease;
     }
 
     .faq-item:nth-child(even) { border-right: none; }
     .faq-item:nth-last-child(-n+2) { border-bottom: none; }
-    .faq-item:hover { background: var(--teal-light); }
+    .faq-item:hover { background: var(--cream); }
 
     .faq-item h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--teal-dark);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--pine);
       margin-bottom: 0.75rem;
+      font-style: italic;
     }
 
     .faq-item p {
       font-size: 0.9rem;
-      color: var(--ink-mid);
-      line-height: 1.75;
-      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.8;
     }
 
-    /* ===================== BRIDGE ===================== */
+    /* ── BRIDGE ── */
     .bridge {
-      background: var(--teal-dark);
+      padding: 8rem 2rem;
+      text-align: center;
+      background: var(--pine);
       position: relative;
       overflow: hidden;
-      padding: 6rem 2rem;
     }
 
     .bridge::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(184,148,63,0.07) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,169,97,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .bridge-inner {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
+    .bridge h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--cream);
+      max-width: 640px;
+      margin: 1rem auto 1.5rem;
+      line-height: 1.3;
       position: relative;
       z-index: 1;
     }
 
-    .bridge-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .bridge h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 1.25rem;
-      line-height: 1.2;
-    }
-
-    .bridge h2 em {
-      font-style: italic;
-      color: var(--gold);
-    }
+    .bridge h2 em { font-style: italic; color: var(--gold); }
 
     .bridge p {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.8;
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
-      font-weight: 300;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(253,250,245,0.65);
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      line-height: 1.85;
+      position: relative;
+      z-index: 1;
     }
 
-    .bridge-btn {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.85);
-      padding: 0.9rem 2rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      border-radius: 2px;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    .bridge .bridge-cta {
+      position: relative;
+      z-index: 1;
     }
 
-    .bridge-btn:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    /* ===================== FINAL CTA ===================== */
+    /* ── FINAL CTA ── */
     .final-cta {
-      background: var(--off-white);
-      border-top: 1px solid var(--rule);
-      padding: 6rem 2rem;
+      padding: 8rem 2rem;
       text-align: center;
+      background: var(--cream-dark);
+      border-top: 1px solid rgba(31,66,54,0.08);
     }
 
     .final-cta h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 1rem;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--pine);
+      max-width: 620px;
+      margin: 1rem auto 1.5rem;
+      line-height: 1.3;
     }
+
+    .final-cta h2 em { font-style: italic; color: var(--gold); }
 
     .final-cta p {
       font-size: 1rem;
-      color: var(--ink-soft);
-      max-width: 480px;
-      margin: 0 auto 2.5rem;
-      font-weight: 300;
-      line-height: 1.75;
+      font-style: italic;
+      color: var(--text-light);
+      max-width: 440px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
     }
 
     .final-note {
-      margin-top: 1.25rem;
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-      font-weight: 300;
-    }
-
-    /* ===================== FOOTER ===================== */
-    footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.5);
-      padding: 3rem 2rem;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .footer-brand .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-brand .footer-logo span { color: var(--gold); }
-
-    .footer-brand p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 280px;
-    }
-
-    .footer-col h4 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--text-light);
+      font-style: italic;
     }
 
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
+    /* ── FOOTER ── */
+    footer {
+      padding: 5rem 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      border-top: 1px solid rgba(31,66,54,0.08);
+      background: var(--bg);
     }
 
-    .footer-col a {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.5);
-      font-weight: 300;
-      transition: color 0.2s;
+    footer .footer-tagline {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
     }
 
-    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    footer .footer-copy {
+      margin-bottom: 1.5rem;
+      font-size: 0.82rem;
+    }
 
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 2rem auto 0;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    footer a {
+      margin: 0 15px;
+      color: var(--pine);
       font-size: 0.78rem;
     }
 
-    /* ===================== ANIMATIONS ===================== */
+    footer a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s ease-out, transform 0.85s ease-out;
+    }
+
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-    .hero h1      { animation: fadeUp 0.6s 0.1s ease both; }
-    .hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
-    .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
-    .hero-trust   { animation: fadeUp 0.6s 0.4s ease both; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .main-nav a { margin: 0 10px; font-size: 0.7rem; }
 
-    /* ===================== RESPONSIVE ===================== */
-    @media (max-width: 900px) {
-      .problem-layout,
-      .diff-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .problem-split { grid-template-columns: 1fr; }
+      .problem-text { padding: 4rem 1.75rem; }
+      .problem-list { padding: 4rem 1.75rem; }
 
-      .stages-grid,
-      .proof-grid,
-      .pricing-grid { grid-template-columns: 1fr; }
-
-      .stage-card { border-right: none; border-bottom: 1px solid var(--rule); }
+      .stages-grid { grid-template-columns: 1fr; }
+      .stage-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(31,66,54,0.1);
+      }
       .stage-card:last-child { border-bottom: none; }
 
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .diff-split { grid-template-columns: 1fr; min-height: auto; }
+      .diff-text { padding: 4rem 1.75rem; }
+      .diff-quote-panel { padding: 4rem 1.75rem; }
+
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(31,66,54,0.1);
+      }
+      .proof-card:last-child { border-bottom: none; }
+
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(31,66,54,0.1);
+      }
+      .pricing-card:last-child { border-bottom: none; }
 
       .faq-grid { grid-template-columns: 1fr; }
       .faq-item { border-right: none !important; }
-      .faq-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+      .faq-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(31,66,54,0.1); }
       .faq-item:last-child { border-bottom: none; }
 
-      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-
-      .nav-links { display: none; }
-      .nav-mobile-toggle { display: flex; }
-
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        background: var(--warm-white);
-        border-bottom: 1px solid var(--rule);
-        padding: 1.5rem 2rem;
-        gap: 1.25rem;
-      }
-    }
-
-    @media (max-width: 480px) {
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .hero { padding: 4rem 1.25rem 4rem; }
-      section { padding: 4rem 1.25rem; }
-      .bridge, .final-cta { padding: 4rem 1.25rem; }
-      footer { padding: 3rem 1.25rem; }
-      nav { padding: 0 1.25rem; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(201,169,97,0.1); }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">Compli<span>Trst</span>&trade;</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#who">Who It&rsquo;s For</a></li>
-        <li><a href="#about">About Dr. TMac</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#pricing" class="nav-cta">Get Started</a></li>
-      </ul>
-      <div class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
+  <!-- HEADER -->
+  <div class="header-banner">
+    <a href="index.html">
+      <img src="complitrst-logo_transparent.png" alt="CompliTrst" />
+    </a>
+  </div>
+
+  <nav class="main-nav">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#who">Who It&rsquo;s For</a>
+    <a href="#about">About Dr. TMac</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://www.tmacinspired.com">TMac Inspired</a>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-inner">
-      <span class="hero-eyebrow">CompliTrst&trade; &nbsp; Built for the Woman Building a Care Business</span>
-      <h1>
-        The compliance system built for the woman who wants to open a <em>group home, adult day care, or assisted living facility</em> and needs to get it right.
-      </h1>
-      <p class="hero-sub">
-        Not generic healthcare software. A system built by Dr. Tasha McCray, 32 years in healthcare,navigating compliance at every level, ALF certified, group home owner, who automated the exact process you are trying to navigate.
-      </p>
-      <div class="hero-actions">
-        <a href="#pricing" class="btn-primary">Start for $97/mo</a>
-        <a href="#how-it-works" class="btn-ghost">See how it works</a>
-      </div>
-      <div class="hero-trust">
-        <span class="hero-trust-item">Adult Day Care</span>
-        <span class="hero-trust-dot"></span>
-        <span class="hero-trust-item">Group Homes</span>
-        <span class="hero-trust-dot"></span>
-        <span class="hero-trust-item">Assisted Living</span>
-        <span class="hero-trust-dot"></span>
-        <span class="hero-trust-item">All 50 States</span>
-        <span class="hero-trust-dot"></span>
-        <span class="hero-trust-item">No Contract</span>
-      </div>
+    <p class="hero-eyebrow">CompliTrst&trade; &nbsp; &middot; &nbsp; Built for the Woman Building a Care Business</p>
+    <h1>
+      The compliance system built for the woman who wants to open a
+      <em>group home, adult day care, or assisted living facility</em>
+      and needs to get it right.
+    </h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">
+      Not generic healthcare software. A system built by Dr. Tasha McCray, 32 years in healthcare, ALF certified, group home owner, who automated the exact process you are trying to navigate.
+    </p>
+    <div class="hero-cta">
+      <a href="#pricing" class="btn btn-gold">Get Early Access &mdash; $97/mo</a>
+      <a href="#how-it-works" class="btn" style="border-color:rgba(253,250,245,0.3); color:rgba(253,250,245,0.7);">See How It Works</a>
+    </div>
+    <div class="hero-trust">
+      <span>Adult Day Care</span>
+      <span>&middot;</span>
+      <span>Group Homes</span>
+      <span>&middot;</span>
+      <span>Assisted Living</span>
+      <span>&middot;</span>
+      <span>All 50 States</span>
+      <span>&middot;</span>
+      <span>No Contract</span>
     </div>
   </section>
 
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="stat-item">
+      <div class="stat-item reveal">
         <div class="stat-number">32</div>
         <div class="stat-label">Years in Healthcare</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item reveal reveal-delay-1">
         <div class="stat-number">100%</div>
         <div class="stat-label">Audit Pass Rate</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item reveal reveal-delay-2">
         <div class="stat-number">$0</div>
         <div class="stat-label">Compliance Fines for Clients</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item reveal reveal-delay-3">
         <div class="stat-number">50</div>
         <div class="stat-label">States Covered</div>
       </div>
@@ -1202,148 +1067,110 @@
   </div>
 
   <!-- PROBLEM -->
-  <section class="problem" id="who">
-    <div class="section-inner">
-      <div class="problem-layout">
-        <div class="problem-text">
-          <p class="section-eyebrow">The Problem</p>
-          <h2>You want to open a facility. The compliance requirements are making you feel like you need a law degree first.</h2>
-          <p>
-            You have done the research. You know the need is real. You know the opportunity is real.
-          </p>
-          <p>
-            But then you start reading about state licensing requirements, incident reporting timelines, policy manuals, staff training documentation, background screening protocols, and the constant question of what auditors are actually looking for.
-          </p>
-          <p>
-            Suddenly the business you could see clearly starts to look impossible.
-          </p>
-          <p>
-            <strong>It is not impossible. You just need the right system, built by someone who has done exactly what you are trying to do.</strong>
-          </p>
-        </div>
-        <div class="problem-list">
-          <h3>Sound familiar?</h3>
-          <ul>
-            <li>You do not know which licenses you need or in what order to get them</li>
-            <li>You are drowning in state-specific regulations with no clear starting point</li>
-            <li>You are afraid of making a mistake that costs you your license before you even open</li>
-            <li>You do not have the budget for a compliance officer</li>
-            <li>You cannot afford to fail an audit</li>
-            <li>You want to build the business, not become a paperwork expert</li>
-          </ul>
-        </div>
-      </div>
+  <section class="problem-split" id="who">
+    <div class="problem-text">
+      <span class="section-label reveal">The Problem</span>
+      <h2 class="reveal">You want to open a facility. The compliance requirements are making you feel like you need <em>a law degree first.</em></h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">You have done the research. You know the need is real. You know the opportunity is real.</p>
+      <p class="reveal">But then you start reading about state licensing requirements, incident reporting timelines, policy manuals, staff training documentation, and the constant question of what auditors are actually looking for.</p>
+      <p class="reveal"><strong>It is not impossible. You just need the right system, built by someone who has done exactly what you are trying to do.</strong></p>
+    </div>
+    <div class="problem-list">
+      <h3 class="reveal">Sound familiar?</h3>
+      <ul>
+        <li class="reveal">You do not know which licenses you need or in what order to get them</li>
+        <li class="reveal reveal-delay-1">You are drowning in state-specific regulations with no clear starting point</li>
+        <li class="reveal reveal-delay-1">You are afraid of making a mistake that costs you your license before you even open</li>
+        <li class="reveal reveal-delay-2">You do not have the budget for a compliance officer</li>
+        <li class="reveal reveal-delay-2">You cannot afford to fail an audit</li>
+        <li class="reveal reveal-delay-3">You want to build the business, not become a paperwork expert</li>
+      </ul>
     </div>
   </section>
 
   <!-- THREE STAGES -->
   <section class="stages" id="how-it-works">
-    <div class="section-inner">
-      <div class="stages-header">
-        <p class="section-eyebrow">How CompliTrst Works</p>
-        <h2 class="section-heading">CompliTrst walks with you from idea to open to operating.</h2>
-        <p class="section-sub" style="margin: 0 auto;">One system. Three stages. Every compliance requirement, handled.</p>
+    <span class="section-label reveal">How CompliTrst Works</span>
+    <h2 class="reveal">CompliTrst walks with you from <em>idea to open to operating.</em></h2>
+    <p class="intro-p reveal">One system. Three stages. Every compliance requirement, handled.</p>
+    <div class="stages-grid">
+      <div class="stage-card reveal">
+        <div class="stage-num">01</div>
+        <h3>Before You Open</h3>
+        <p>Know exactly what licenses, certifications, and documentation your specific facility type requires, in your state. No guessing. No Google rabbit holes. A clear compliance roadmap built for your situation before you spend a dollar on real estate or build-out.</p>
+        <span class="stage-tag">Pre-Opening Research &amp; Roadmap</span>
       </div>
-      <div class="stages-grid">
-        <div class="stage-card">
-          <span class="stage-number">01</span>
-          <p class="stage-label">Before You Open</p>
-          <h3>Know exactly what is required.</h3>
-          <p>
-            Know exactly what licenses, certifications, and documentation your specific facility type requires, in your state. No guessing. No Google rabbit holes. A clear compliance roadmap built for your situation before you spend a dollar on real estate or build-out.
-          </p>
-        </div>
-        <div class="stage-card">
-          <span class="stage-number">02</span>
-          <p class="stage-label">When You Launch</p>
-          <h3>Automate the paperwork. Open the right way.</h3>
-          <p>
-            Automated policies, required documentation, filing checklists, staff training tracking. Everything an auditor looks for, handled before they ever walk through your door. You focus on the business. CompliTrst handles the paper trail.
-          </p>
-        </div>
-        <div class="stage-card">
-          <span class="stage-number">03</span>
-          <p class="stage-label">Once You Are Operating</p>
-          <h3>Stay audit-ready. Every single day.</h3>
-          <p>
-            Zero missed deadlines. Zero scramble when an auditor calls. CompliTrst runs in the background so you can run your business. Ongoing compliance tracking, incident reporting, staff documentation, and real-time audit readiness built into your daily operations.
-          </p>
-        </div>
+      <div class="stage-card reveal reveal-delay-1">
+        <div class="stage-num">02</div>
+        <h3>When You Launch</h3>
+        <p>Automated policies, required documentation, filing checklists, staff training tracking. Everything an auditor looks for, handled before they ever walk through your door. You focus on the business. CompliTrst handles the paper trail.</p>
+        <span class="stage-tag">Launch Phase Documentation</span>
+      </div>
+      <div class="stage-card reveal reveal-delay-2">
+        <div class="stage-num">03</div>
+        <h3>Once You Are Operating</h3>
+        <p>Zero missed deadlines. Zero scramble when an auditor calls. CompliTrst runs in the background so you can run your business. Ongoing compliance tracking, incident reporting, staff documentation, and real-time audit readiness built into your daily operations.</p>
+        <span class="stage-tag">Ongoing Operations</span>
       </div>
     </div>
   </section>
 
   <!-- DIFFERENTIATOR -->
-  <section class="differentiator" id="about">
-    <div class="section-inner">
-      <div class="diff-layout">
-        <div class="diff-content">
-          <p class="section-eyebrow">Why CompliTrst Is Different</p>
-          <h2>Most compliance software is built by developers. This one was built by someone who has done what you are trying to do.</h2>
-          <p>
-            Dr. Tasha &ldquo;TMac&rdquo; McCray is not a software company that discovered healthcare. She is a healthcare professional who built the software she wished existed when she started.
-          </p>
-          <ul class="cred-list">
-            <li>32 years navigating healthcare holding licensure and navigating state and federal compliance requirements the entire time</li>
-            <li>Built and owned group homes</li>
-            <li>ALF certified and holds a PhD</li>
-            <li>Has guided facility owners across all 50 states through licensing, audits, and operations</li>
-            <li>Knows what auditors look for because she has been on both sides of the table</li>
-          </ul>
-          <p>
-            That is not a feature. That is the difference.
-          </p>
-          <a href="https://www.tmacinspired.com/about.html" class="diff-link">
-            Meet Dr. TMac &rarr;
-          </a>
-        </div>
-        <div class="diff-quote">
-          <blockquote>
-            CompliTrst did not just organize our compliance. It gave me my life back. I sleep better knowing everything is handled. Our last audit? Three hours instead of three weeks of panic.
-          </blockquote>
-          <p class="diff-quote-attr">Sarah M. &nbsp;|&nbsp; ALF Owner, Tampa Bay &nbsp;|&nbsp; Zero compliance fines in 18 months</p>
-        </div>
+  <section class="diff-split" id="about">
+    <div class="diff-text">
+      <span class="section-label reveal">Why CompliTrst Is Different</span>
+      <h2 class="reveal">Most compliance software is built by developers. This one was built by someone who has <em>done what you are trying to do.</em></h2>
+      <div class="gold-rule reveal"></div>
+      <p class="reveal">Dr. Tasha &ldquo;TMac&rdquo; McCray is not a software company that discovered healthcare. She is a healthcare professional who built the software she wished existed when she started.</p>
+      <ul class="cred-list">
+        <li class="reveal">32 years in healthcare, navigating compliance at every level</li>
+        <li class="reveal reveal-delay-1">Built and owned group homes</li>
+        <li class="reveal reveal-delay-1">ALF certified and holds a PhD</li>
+        <li class="reveal reveal-delay-2">Has guided facility owners across all 50 states through licensing, audits, and operations</li>
+        <li class="reveal reveal-delay-2">Knows what auditors look for because she has been on both sides of the table</li>
+      </ul>
+      <p class="reveal" style="font-style:italic; color:rgba(253,250,245,0.5); margin-top:0.5rem;">That is not a feature. That is the difference.</p>
+      <div style="margin-top:2rem;" class="reveal">
+        <a href="https://www.tmacinspired.com/about.html" class="btn btn-gold">Meet Dr. TMac</a>
       </div>
+    </div>
+    <div class="diff-quote-panel">
+      <div class="quote-mark-sm">&ldquo;</div>
+      <blockquote class="reveal">
+        CompliTrst did not just organize our compliance. It gave me my life back. I sleep better knowing everything is handled. Our last audit? Three hours instead of three weeks of panic.
+      </blockquote>
+      <p class="diff-quote-attr reveal">Sarah M. &nbsp;&middot;&nbsp; ALF Owner, Tampa Bay &nbsp;&middot;&nbsp; Zero compliance fines in 18 months</p>
     </div>
   </section>
 
   <!-- SOCIAL PROOF -->
   <section class="proof">
-    <div class="section-inner">
-      <div class="proof-header">
-        <p class="section-eyebrow">From the People Using It</p>
-        <h2 class="section-heading">Real results from real facility owners.</h2>
+    <span class="section-label reveal">From the People Using It</span>
+    <h2 class="reveal">Real results from <em>real facility owners.</em></h2>
+    <div class="proof-grid">
+      <div class="proof-card reveal">
+        <blockquote>The ROI was immediate. First month alone, we avoided what would have been a $5,000 fine for missing documentation. This system has already paid for itself ten times over.</blockquote>
+        <div class="proof-meta">
+          <div class="proof-name">Jennifer L.</div>
+          <div class="proof-title">Group Home Administrator</div>
+          <div class="proof-result">$5,000+ in avoided fines, first month</div>
+        </div>
       </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <blockquote>
-            The ROI was immediate. First month alone, we avoided what would have been a $5,000 fine for missing documentation. This system has already paid for itself ten times over.
-          </blockquote>
-          <div class="proof-meta">
-            <div class="proof-name">Jennifer L.</div>
-            <div class="proof-title">Group Home Administrator</div>
-            <div class="proof-result">$5,000+ in avoided fines, first month</div>
-          </div>
+      <div class="proof-card reveal reveal-delay-1">
+        <blockquote>CompliTrst did not just organize our compliance. It gave me my life back. I sleep better knowing everything is handled. Our last audit? Three hours instead of three weeks of panic.</blockquote>
+        <div class="proof-meta">
+          <div class="proof-name">Sarah M.</div>
+          <div class="proof-title">ALF Owner, Tampa Bay</div>
+          <div class="proof-result">Zero compliance fines in 18 months</div>
         </div>
-        <div class="proof-card">
-          <blockquote>
-            CompliTrst did not just organize our compliance. It gave me my life back. I sleep better knowing everything is handled. Our last audit? Three hours instead of three weeks of panic.
-          </blockquote>
-          <div class="proof-meta">
-            <div class="proof-name">Sarah M.</div>
-            <div class="proof-title">ALF Owner, Tampa Bay</div>
-            <div class="proof-result">Zero compliance fines in 18 months</div>
-          </div>
-        </div>
-        <div class="proof-card">
-          <blockquote>
-            I was paralyzed trying to figure out where to even start. CompliTrst gave me a roadmap before I spent a dollar. I knew exactly what I needed, in what order, and why.
-          </blockquote>
-          <div class="proof-meta">
-            <div class="proof-name">Denise R.</div>
-            <div class="proof-title">Adult Day Care, Pre-Opening Phase</div>
-            <div class="proof-result">Licensed and open in 4 months</div>
-          </div>
+      </div>
+      <div class="proof-card reveal reveal-delay-2">
+        <blockquote>I was paralyzed trying to figure out where to even start. CompliTrst gave me a roadmap before I spent a dollar. I knew exactly what I needed, in what order, and why.</blockquote>
+        <div class="proof-meta">
+          <div class="proof-name">Denise R.</div>
+          <div class="proof-title">Adult Day Care, Pre-Opening Phase</div>
+          <div class="proof-result">Licensed and open in 4 months</div>
         </div>
       </div>
     </div>
@@ -1351,120 +1178,95 @@
 
   <!-- PRICING -->
   <section class="pricing" id="pricing">
-    <div class="section-inner">
-      <div class="pricing-header">
-        <p class="section-eyebrow">Pricing</p>
-        <h2 class="section-heading">Simple. Transparent. Built to grow with you.</h2>
-        <p class="section-sub" style="margin: 0 auto;">No contracts. No setup fees. No surprises. Cancel anytime.</p>
+    <span class="section-label reveal">Pricing</span>
+    <h2 class="reveal">Simple. Transparent. <em>Built to grow with you.</em></h2>
+    <p class="intro-p reveal">No contracts. No setup fees. No surprises. Cancel anytime.</p>
+    <div class="pricing-grid">
+
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-name">Before You Open</div>
+        <div class="pricing-best-for">For the woman in research and planning mode</div>
+        <div class="pricing-amount">$97</div>
+        <div class="pricing-period">per month &nbsp;&middot;&nbsp; cancel anytime</div>
+        <ul class="pricing-features">
+          <li>State-specific compliance roadmap for your facility type</li>
+          <li>License and certification checklist, in order</li>
+          <li>Regulatory requirement breakdown by state</li>
+          <li>Pre-opening documentation guide</li>
+          <li>Access to CompliTrst knowledge base</li>
+        </ul>
+        <a href="complitrst-waitlist.html" class="btn btn-pine-fill">Get Early Access</a>
       </div>
-      <div class="pricing-grid">
 
-        <!-- STARTER -->
-        <div class="pricing-card">
-          <div class="pricing-card-top">
-            <p class="pricing-tier">Starter</p>
-            <p class="pricing-name">Before You Open</p>
-            <p class="pricing-best-for">For the woman in research and planning mode</p>
-          </div>
-          <div class="pricing-card-body">
-            <div class="pricing-price">
-              <div class="pricing-amount">$97</div>
-              <div class="pricing-period">per month &nbsp;&middot;&nbsp; cancel anytime</div>
-            </div>
-            <ul class="pricing-features">
-              <li>State-specific compliance roadmap for your facility type</li>
-              <li>License and certification checklist, in order</li>
-              <li>Regulatory requirement breakdown by state</li>
-              <li>Pre-opening documentation guide</li>
-              <li>Access to CompliTrst knowledge base</li>
-            </ul>
-            <a href="https://complitrst.com/complitrst-waitlist.html" class="pricing-btn">Get Started</a>
-          </div>
-        </div>
-
-        <!-- BUILDER -->
-        <div class="pricing-card featured">
-          <div class="pricing-card-top">
-            <span class="featured-badge">Most Popular</span>
-            <p class="pricing-tier">Builder</p>
-            <p class="pricing-name">Launch Phase</p>
-            <p class="pricing-best-for">For the woman actively opening her facility</p>
-          </div>
-          <div class="pricing-card-body">
-            <div class="pricing-price">
-              <div class="pricing-amount">$147</div>
-              <div class="pricing-period">per month &nbsp;&middot;&nbsp; cancel anytime</div>
-            </div>
-            <ul class="pricing-features">
-              <li>Everything in Starter</li>
-              <li>Automated policy and procedure documents</li>
-              <li>Filing tracker with deadline alerts</li>
-              <li>Staff training log and tracking</li>
-              <li>Audit preparation checklist</li>
-              <li>Document storage and organization</li>
-            </ul>
-            <a href="https://complitrst.com/complitrst-waitlist.html" class="pricing-btn">Get Started</a>
-          </div>
-        </div>
-
-        <!-- OPERATOR -->
-        <div class="pricing-card">
-          <div class="pricing-card-top">
-            <p class="pricing-tier">Operator</p>
-            <p class="pricing-name">Ongoing Operations</p>
-            <p class="pricing-best-for">For the facility owner who is open and running</p>
-          </div>
-          <div class="pricing-card-body">
-            <div class="pricing-price">
-              <div class="pricing-amount">$197</div>
-              <div class="pricing-period">per month &nbsp;&middot;&nbsp; cancel anytime</div>
-            </div>
-            <ul class="pricing-features">
-              <li>Everything in Builder</li>
-              <li>Audit simulation and readiness scoring</li>
-              <li>Incident reporting and management</li>
-              <li>Unlimited document storage</li>
-              <li>Real-time compliance dashboard</li>
-              <li>Regulatory update alerts</li>
-            </ul>
-            <a href="https://complitrst.com/complitrst-waitlist.html" class="pricing-btn">Get Started</a>
-          </div>
-        </div>
-
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <span class="featured-label">Most Popular</span>
+        <div class="pricing-tier">Builder</div>
+        <div class="pricing-name">Launch Phase</div>
+        <div class="pricing-best-for">For the woman actively opening her facility</div>
+        <div class="pricing-amount">$147</div>
+        <div class="pricing-period">per month &nbsp;&middot;&nbsp; cancel anytime</div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Automated policy and procedure documents</li>
+          <li>Filing tracker with deadline alerts</li>
+          <li>Staff training log and tracking</li>
+          <li>Audit preparation checklist</li>
+          <li>Document storage and organization</li>
+        </ul>
+        <a href="complitrst-waitlist.html" class="btn btn-gold">Get Early Access</a>
       </div>
-      <p class="pricing-note">Everything you need to know is on this page. When you are ready, so are we.</p>
+
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-tier">Operator</div>
+        <div class="pricing-name">Ongoing Operations</div>
+        <div class="pricing-best-for">For the facility owner who is open and running</div>
+        <div class="pricing-amount">$197</div>
+        <div class="pricing-period">per month &nbsp;&middot;&nbsp; cancel anytime</div>
+        <ul class="pricing-features">
+          <li>Everything in Builder</li>
+          <li>Audit simulation and readiness scoring</li>
+          <li>Incident reporting and management</li>
+          <li>Unlimited document storage</li>
+          <li>Real-time compliance dashboard</li>
+          <li>Regulatory update alerts</li>
+        </ul>
+        <a href="complitrst-waitlist.html" class="btn btn-pine-fill">Get Early Access</a>
+      </div>
+
     </div>
+    <p class="pricing-note reveal">Everything you need to know is on this page. When you are ready, so are we.</p>
   </section>
 
   <!-- FAQ -->
   <section class="faq">
-    <div class="section-inner">
+    <div class="faq-inner">
       <div class="faq-header">
-        <p class="section-eyebrow">Common Questions</p>
-        <h2 class="section-heading">Answered before you have to ask.</h2>
+        <span class="section-label reveal">Common Questions</span>
+        <h2 class="reveal">Answered before <em>you have to ask.</em></h2>
       </div>
       <div class="faq-grid">
-        <div class="faq-item">
+        <div class="faq-item reveal">
           <h3>Does this work for my state?</h3>
           <p>Yes. CompliTrst covers all 50 states. You will receive a compliance roadmap specific to your state and your facility type. Every state has different requirements. That is exactly why this exists.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item reveal reveal-delay-1">
           <h3>What facility types does this cover?</h3>
           <p>Adult day care, group homes, and assisted living facilities. If you are unsure which path is right for you, the Starter plan will help you understand the differences and requirements for each.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item reveal">
           <h3>I have not opened yet. Is it too early to start?</h3>
           <p>No. The Starter plan is built specifically for women in the research and planning phase. Understanding your compliance requirements before you spend money on a location or build-out is how you avoid costly mistakes.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item reveal reveal-delay-1">
           <h3>What if my staff is not tech-savvy?</h3>
           <p>CompliTrst is designed to be used by people running care businesses, not developers. If you can send an email, you can use CompliTrst. Onboarding support is included with every plan.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item reveal">
           <h3>How long does it take to get set up?</h3>
-          <p>Most clients are fully set up and using the system within 3 to 7 days. You will not wait months to see value. Most clients see ROI within the first 30 days through time saved and fines avoided.</p>
+          <p>Most clients are fully set up and using the system within three to seven days. Most see ROI within the first 30 days through time saved and fines avoided.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item reveal reveal-delay-1">
           <h3>Is my data secure?</h3>
           <p>Yes. CompliTrst uses enterprise-grade security with encrypted storage and regular backups. Your data is protected and handled in accordance with HIPAA and applicable state regulations.</p>
         </div>
@@ -1472,102 +1274,50 @@
     </div>
   </section>
 
-  <!-- BRIDGE TO TMAC INSPIRED -->
+  <!-- BRIDGE -->
   <section class="bridge">
-    <div class="bridge-inner">
-      <p class="bridge-eyebrow">Beyond Compliance</p>
-      <h2>CompliTrst gets you compliant. <em>Dr. TMac shows you how to build the business.</em></h2>
-      <p>
-        If you are realizing you need more than software, you need strategy, a community, real estate guidance, and someone who has built what you are building, that is what TMac Inspired is for.
-      </p>
-      <a href="https://www.tmacinspired.com" class="bridge-btn">Explore TMac Inspired &rarr;</a>
+    <span class="section-label reveal" style="position:relative; z-index:1;">Beyond Compliance</span>
+    <h2 class="reveal">CompliTrst gets you compliant. <em>Dr. TMac shows you how to build the business.</em></h2>
+    <p class="reveal">If you are realizing you need more than software, you need strategy, a community, real estate guidance, and someone who has built what you are building, that is what TMac Inspired is for.</p>
+    <div class="bridge-cta reveal">
+      <a href="https://www.tmacinspired.com" class="btn btn-gold">Explore TMac Inspired</a>
     </div>
   </section>
 
   <!-- FINAL CTA -->
   <section class="final-cta">
-    <h2>Ready to stop letting compliance be the reason you have not started?</h2>
-    <p>
-      The requirements do not go away on their own. But they do not have to stop you either.
-    </p>
-    <a href="#pricing" class="btn-primary" style="font-size:1rem; padding: 1.1rem 2.5rem;">Get Started for $97/mo</a>
-    <p class="final-note">No contract. No setup fee. Cancel anytime. Everything you need to know is on this page.</p>
+    <span class="section-label reveal">Ready to Begin</span>
+    <h2 class="reveal">Ready to stop letting compliance be the reason <em>you have not started?</em></h2>
+    <p class="reveal">The requirements do not go away on their own. But they do not have to stop you either.</p>
+    <a href="complitrst-waitlist.html" class="btn btn-pine-fill reveal">Get Early Access for $97/mo</a>
+    <p class="final-note reveal">No contract. No setup fee. Cancel anytime.</p>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">Compli<span>Trst</span>&trade;</div>
-        <p>
-          Compliance systems built for the woman opening an adult day care, group home, or assisted living facility. All 50 states. Built by Dr. Tasha McCray, Ph.D.
-        </p>
-      </div>
-      <div class="footer-col">
-        <h4>Solutions</h4>
-        <ul>
-          <li><a href="https://complitrst.com/complitrst-waitlist.html">Compliance Management</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#about">About Dr. TMac</a></li>
-          <li><a href="https://www.tmacinspired.com">TMac Inspired</a></li>
-          <li><a href="mailto:support@tmacinspired.com">Contact</a></li>
-          <li><a href="https://www.complitrst.com/privacy">Privacy Policy</a></li>
-          <li><a href="https://www.complitrst.com/terms">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>CompliTrst&trade; &copy; 2026 &nbsp;&middot;&nbsp; Built by Dr. Tasha McCray, Ph.D.</span>
-      <span>All rights reserved</span>
+  <footer class="reveal">
+    <p class="footer-tagline">&ldquo;You can have it all.&rdquo;</p>
+    <p class="footer-copy">CompliTrst&trade; &copy; 2026 &nbsp;&middot;&nbsp; Built by Dr. Tasha McCray, Ph.D.</p>
+    <div>
+      <a href="https://app.complitrst.com">Compliance Management</a>
+      <a href="https://www.tmacinspired.com">TMac Inspired</a>
+      <a href="https://www.complitrst.com/privacy">Privacy Policy</a>
+      <a href="https://www.complitrst.com/terms">Terms of Service</a>
+      <a href="mailto:support@tmacinspired.com">Contact</a>
     </div>
   </footer>
 
   <script>
-    // Mobile nav toggle
-    const toggle = document.getElementById('mobileToggle');
-    const links  = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-    });
-
-    // Close mobile nav on link click
-    links.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => links.classList.remove('open'));
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function revealOnScroll() {
+      var els = document.querySelectorAll(".reveal");
+      for (var i = 0; i < els.length; i++) {
+        if (els[i].getBoundingClientRect().top < window.innerHeight - 120) {
+          els[i].classList.add("active");
         }
-      });
-    });
-
-    // Subtle scroll fade-in for sections
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.08 });
-
-    document.querySelectorAll('.stage-card, .proof-card, .pricing-card, .faq-item, .stat-item').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(18px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(el);
-    });
+      }
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
   </script>
+
 </body>
 </html>
