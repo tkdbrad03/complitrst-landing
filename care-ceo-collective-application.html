@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — The Care CEO Collective</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/tkdbrad03/assets/main/complitrst.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pine: #1f4236; --pine-deep: #152e25; --gold: #c9a961; --rose: #b76e79;
+    --white: #ffffff; --light: #f8faf8; --border: #c5d9ce; --text: #1f4236; --text-light: #5c6b64;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: #f0f4f1; color: var(--text); min-height: 100vh; padding: 20px 16px 60px; }
+  .wrap { max-width: 680px; margin: 0 auto; }
+
+  /* HEADER */
+  .header { background: var(--pine); border-radius: 10px 10px 0 0; padding: 32px 28px 24px; position: relative; overflow: hidden; }
+  .header::after { content: ''; position: absolute; right: -60px; top: -60px; width: 240px; height: 240px; border-radius: 50%; border: 1px solid rgba(201,169,97,0.1); pointer-events: none; }
+  .header .badge { display: inline-block; background: var(--gold); color: var(--pine); font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 5vw, 34px); color: var(--white); font-weight: 700; line-height: 1.15; margin-bottom: 6px; }
+  .header h1 em { color: var(--gold); font-style: italic; }
+  .header-divider { width: 48px; height: 2px; background: var(--gold); margin: 14px 0; }
+  .header-sub { font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.7; }
+
+  /* INTRO */
+  .intro { background: #eaf3ee; border-left: 4px solid var(--pine); padding: 14px 20px; font-size: 13px; color: var(--text); font-weight: 300; line-height: 1.7; }
+  .intro strong { color: var(--pine); font-weight: 600; }
+
+  /* FORM BODY */
+  .form-body { background: var(--white); padding: 28px 24px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 24px rgba(31,66,54,0.08); }
+
+  /* SECTIONS */
+  .section { margin-bottom: 32px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--pine); border-bottom: 2px solid var(--gold); padding-bottom: 8px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .section-title span { font-size: 11px; font-family: 'DM Sans', sans-serif; font-weight: 700; background: var(--pine); color: var(--gold); padding: 3px 10px; border-radius: 10px; }
+
+  /* FIELDS */
+  .field-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .field-row { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+  label { font-size: 12px; font-weight: 600; color: var(--pine); letter-spacing: 0.3px; }
+  label .req { color: var(--gold); margin-left: 2px; }
+  label .note { font-size: 11px; font-weight: 300; color: var(--text-light); display: block; margin-top: 2px; line-height: 1.5; }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text); background: var(--light); transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none; appearance: none; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--pine); box-shadow: 0 0 0 3px rgba(31,66,54,0.08); background: var(--white); }
+  textarea { resize: vertical; min-height: 90px; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231f4236' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+
+  /* RADIO / CHECKBOX */
+  .radio-group, .check-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .radio-opt, .check-opt { display: flex; align-items: flex-start; gap: 10px; background: var(--light); border: 1.5px solid var(--border); border-radius: 6px; padding: 10px 14px; cursor: pointer; transition: all 0.15s; font-size: 13px; color: var(--text-light); line-height: 1.5; }
+  .radio-opt:has(input:checked), .check-opt:has(input:checked) { background: #eaf3ee; border-color: var(--pine); color: var(--pine); font-weight: 500; }
+  .radio-opt input, .check-opt input { accent-color: var(--pine); width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; margin-top: 1px; }
+
+  /* WARNING BOX */
+  .warning { background: #fef9ee; border-left: 3px solid var(--gold); padding: 12px 14px; border-radius: 0 6px 6px 0; font-size: 12px; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+  .warning strong { color: var(--pine); }
+
+  /* OTHER INPUT */
+  .other-input { display: none; margin-top: 8px; }
+  .other-input input { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text); background: var(--white); }
+  .other-input input:focus { outline: none; border-color: var(--pine); }
+
+  /* SUBMIT */
+  .submit-btn { width: 100%; background: var(--pine); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 16px; border: none; border-radius: 6px; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+  .submit-btn:hover { background: var(--pine-deep); }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* SUCCESS */
+  .success-msg { display: none; background: #eaf3ee; border: 1.5px solid var(--pine); border-radius: 8px; padding: 32px 24px; text-align: center; margin-top: 8px; }
+  .success-msg h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--pine); margin-bottom: 10px; font-weight: 700; }
+  .success-msg p { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+
+  /* ERROR */
+  .error-msg { display: none; background: #fdf2f2; border: 1.5px solid #e74c3c; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #c0392b; margin-top: 8px; text-align: center; }
+
+  /* FOOTER */
+  .footer { background: var(--pine); padding: 20px; border-radius: 10px; text-align: center; margin-top: 14px; }
+  .footer p { font-size: 11px; color: rgba(255,255,255,0.25); line-height: 1.8; }
+  .footer strong { color: var(--gold); font-weight: 400; }
+
+  @media (min-width: 540px) {
+    body { padding: 32px 24px 60px; }
+    .header { padding: 40px 36px 28px; }
+    .form-body { padding: 36px 36px; }
+    .field-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="badge">Now Accepting Applications</div>
+    <h1>Apply to<br><em>The Care CEO Collective</em></h1>
+    <div class="header-divider"></div>
+    <p class="header-sub">This is not a course. This is a structured coaching ecosystem built for women who are serious about launching a compliant, profitable care business and ready to do the work.</p>
+  </div>
+
+  <div class="intro">
+    <strong>Read before applying:</strong> Every application is reviewed personally. We are selective because the women inside this collective deserve a room full of people who are equally committed. If you are still in the "maybe someday" stage, this is not the right fit yet and that is okay.
+  </div>
+
+  <div class="form-body">
+    <form id="appForm" novalidate>
+
+      <!-- SECTION 1 -->
+      <div class="section">
+        <div class="section-title"><span>01</span> Basic Information</div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" name="full_name" placeholder="Your full name" required>
+          </div>
+          <div class="field-group">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="(000) 000-0000" required>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Email Address <span class="req">*</span>
+            <span class="note">Must match your Substack subscriber email</span>
+          </label>
+          <input type="email" name="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="field-group">
+          <label>Current State of Residence <span class="req">*</span>
+            <span class="note">Critical for identifying your localized regulatory framework</span>
+          </label>
+          <select name="state" required>
+            <option value="">Select your state...</option>
+            <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+            <option>Arkansas</option><option>California</option><option>Colorado</option>
+            <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+            <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+            <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+            <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+            <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+            <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+            <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+            <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+            <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+            <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+            <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+            <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+            <option>Texas</option><option>Utah</option><option>Vermont</option>
+            <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+            <option>Wisconsin</option><option>Wyoming</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="section">
+        <div class="section-title"><span>02</span> Intent &amp; Business Model</div>
+
+        <div class="field-group">
+          <label>Which business model are you committed to launching? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="business_model" value="Residential Assisted Living Facility (ALF)" required> Residential Assisted Living Facility (ALF)</label>
+            <label class="radio-opt"><input type="radio" name="business_model" value="Group Home — Licensed"> Group Home — Licensed</label>
+            <label class="radio-opt"><input type="radio" name="business_model" value="Group Home — Unlicensed / Independent Living"> Group Home — Unlicensed / Independent Living</label>
+            <label class="radio-opt"><input type="radio" name="business_model" value="Adult Day Care Center"> Adult Day Care Center</label>
+            <label class="radio-opt"><input type="radio" name="business_model" value="Unsure / Need guidance to choose"> Unsure / Need guidance to choose</label>
+          </div>
+        </div>
+
+        <div class="field-group" style="margin-top: 18px;">
+          <label>What is your current timeline to open your facility? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="timeline" value="Immediately (Next 1-3 months)" required> Immediately — Next 1 to 3 months</label>
+            <label class="radio-opt"><input type="radio" name="timeline" value="Soon (Next 3-6 months)"> Soon — Next 3 to 6 months</label>
+            <label class="radio-opt"><input type="radio" name="timeline" value="Planning phase (6-12 months)"> Planning phase — 6 to 12 months</label>
+            <label class="radio-opt"><input type="radio" name="timeline" value="Just researching for the future"> Just researching for the future</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="section">
+        <div class="section-title"><span>03</span> Professional &amp; Financial Readiness</div>
+
+        <div class="field-group">
+          <label>What is your professional background? <span class="req">*</span>
+            <span class="note">Select all that apply</span>
+          </label>
+          <div class="check-group">
+            <label class="check-opt"><input type="checkbox" name="background" value="Healthcare (Nurse, CNA, Med Tech, Admin, etc.)"> Healthcare — Nurse, CNA, Med Tech, Admin, etc.</label>
+            <label class="check-opt"><input type="checkbox" name="background" value="Real Estate / Property Management"> Real Estate / Property Management</label>
+            <label class="check-opt"><input type="checkbox" name="background" value="Corporate / Business Management"> Corporate / Business Management</label>
+            <label class="check-opt" id="otherCheckOpt"><input type="checkbox" name="background" value="Other" id="otherCheck" onchange="toggleOther(this)"> Other</label>
+          </div>
+          <div class="other-input" id="otherInput">
+            <input type="text" name="background_other" placeholder="Please describe your background...">
+          </div>
+        </div>
+
+        <div class="field-group" style="margin-top: 18px;">
+          <label>Do you currently own or lease a property that could be converted? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="property" value="Yes, I already have a property ready" required> Yes, I already have a property ready</label>
+            <label class="radio-opt"><input type="radio" name="property" value="No, but I have the capital/credit to secure one"> No, but I have the capital and credit to secure one</label>
+            <label class="radio-opt"><input type="radio" name="property" value="No, I need to learn how to find and secure a property first"> No, I need to learn how to find and secure a property first</label>
+          </div>
+        </div>
+
+        <div class="field-group" style="margin-top: 18px;">
+          <label>Do you have liquid capital secured for startup costs? <span class="req">*</span></label>
+          <div class="warning">
+            <strong>Note:</strong> Group homes and ALFs typically require a baseline capital injection to pass initial state audits. This includes leasing or purchasing, renovations, state zoning, and licensing fees.
+          </div>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="capital" value="Less than $10,000" required> Less than $10,000</label>
+            <label class="radio-opt"><input type="radio" name="capital" value="$10,000 - $25,000"> $10,000 — $25,000</label>
+            <label class="radio-opt"><input type="radio" name="capital" value="$25,000 - $50,000"> $25,000 — $50,000</label>
+            <label class="radio-opt"><input type="radio" name="capital" value="$50,000+"> $50,000 or more</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="section">
+        <div class="section-title"><span>04</span> Commitment &amp; Mindset</div>
+
+        <div class="field-group">
+          <label>What is the #1 roadblock currently holding you back from launching? <span class="req">*</span></label>
+          <textarea name="roadblock" placeholder="Be specific and honest. This helps us understand exactly where you are and how we can help..." required></textarea>
+        </div>
+
+        <div class="field-group" style="margin-top: 18px;">
+          <label>Are you ready to actively invest your time, energy, and financial resources into a structured coaching ecosystem to guarantee compliance and avoid costly state fines? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="commitment" value="Yes, I am fully committed and ready to take action" required> Yes, I am fully committed and ready to take action</label>
+            <label class="radio-opt"><input type="radio" name="commitment" value="No, I am only looking for free or low-cost information right now"> No, I am only looking for free or low-cost information right now</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Submit My Application</button>
+      <div class="error-msg" id="errorMsg">Something went wrong. Please try again or email us at support@complitrst.com</div>
+
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <h3>Application Received</h3>
+      <p>Thank you for applying to The Care CEO Collective. Every application is reviewed personally.<br><br>
+      If your application is a strong fit, you will hear from us at <strong>support@complitrst.com</strong> within 3 to 5 business days with next steps.<br><br>
+      In the meantime, keep building.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p><strong>CompliTrst | TMac Inspired</strong> &nbsp;·&nbsp; The Care CEO Collective<br>
+    support@complitrst.com<br>
+    <span style="font-size:10px;">Applications are reviewed personally. Not everyone will be accepted.</span></p>
+  </div>
+
+</div>
+
+<script>
+  // Replace this with your deployed Google Apps Script Web App URL
+  const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+  function toggleOther(checkbox) {
+    document.getElementById('otherInput').style.display = checkbox.checked ? 'block' : 'none';
+  }
+
+  // Phone formatting
+  document.querySelector('input[type="tel"]').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '').substring(0, 10);
+    if (v.length >= 6) v = '(' + v.substring(0,3) + ') ' + v.substring(3,6) + '-' + v.substring(6);
+    else if (v.length >= 3) v = '(' + v.substring(0,3) + ') ' + v.substring(3);
+    this.value = v;
+  });
+
+  document.getElementById('appForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Validate required fields
+    const requiredInputs = this.querySelectorAll('input[required], select[required], textarea[required]');
+    let valid = true;
+    requiredInputs.forEach(field => {
+      if (field.type === 'radio') return;
+      if (!field.value.trim()) { field.style.borderColor = '#c0392b'; valid = false; }
+      else field.style.borderColor = '';
+    });
+
+    // Validate required radio groups
+    const radioGroups = ['business_model', 'timeline', 'property', 'capital', 'commitment'];
+    radioGroups.forEach(name => {
+      const checked = document.querySelector(`input[name="${name}"]:checked`);
+      if (!checked) { valid = false; }
+    });
+
+    // Validate at least one background checkbox
+    const backgrounds = document.querySelectorAll('input[name="background"]:checked');
+    if (backgrounds.length === 0) valid = false;
+
+    if (!valid) { alert('Please complete all required fields before submitting.'); return; }
+
+    // Collect form data
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    const backgroundValues = Array.from(backgrounds).map(cb => cb.value);
+    const otherBackground = document.querySelector('input[name="background_other"]').value;
+    if (otherBackground) backgroundValues.push('Other: ' + otherBackground);
+
+    const payload = {
+      full_name: this.full_name.value,
+      email: this.email.value,
+      phone: this.phone.value,
+      state: this.state.value,
+      business_model: document.querySelector('input[name="business_model"]:checked')?.value,
+      timeline: document.querySelector('input[name="timeline"]:checked')?.value,
+      background: backgroundValues.join(', '),
+      property: document.querySelector('input[name="property"]:checked')?.value,
+      capital: document.querySelector('input[name="capital"]:checked')?.value,
+      roadblock: this.roadblock.value,
+      commitment: document.querySelector('input[name="commitment"]:checked')?.value,
+      submitted_at: new Date().toLocaleString()
+    };
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      document.getElementById('appForm').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch(err) {
+      btn.disabled = false;
+      btn.textContent = 'Submit My Application';
+      document.getElementById('errorMsg').style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
